@@ -484,6 +484,9 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
   border-color: var(--orange);
   color: #fff;
 }
+.cal-reserve {
+  visibility: hidden;
+}
 .nav-placeholder {
   flex: 1;
   min-height: 15.5rem;
