@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NHSF (UK)//Schools Guide//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:navratri-central-2026@nhsf.org.uk
+DTSTAMP:20260922T110000Z
+DTSTART:20261028T180000Z
+DTEND:20261028T230000Z
+SUMMARY:NHSF(UK) - Central Zone Navratri
+LOCATION:Shree Prajapati Hall\, Leicester\, LE4 6BY
+DESCRIPTION:Wednesday 28 October\, 6pm–11pm. Shree Prajapati Hall\, Leicester\, LE4 6BY. Garba\, Dandiya and aarti to Maa Durga.
+END:VEVENT
+END:VCALENDAR

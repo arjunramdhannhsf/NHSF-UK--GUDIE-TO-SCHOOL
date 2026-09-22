@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NHSF (UK)//Schools Guide//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:navratri-north-2026@nhsf.org.uk
+DTSTAMP:20260922T110000Z
+DTSTART:20261021T170000Z
+DTEND:20261021T230000Z
+SUMMARY:NHSF(UK) - North Zone Navratri
+LOCATION:Wythenshawe Forum\, Manchester\, M22 5RX
+DESCRIPTION:Wednesday 21 October\, 6pm–12am. Wythenshawe Forum\, Manchester\, M22 5RX. Garba\, Dandiya and aarti to Maa Durga.
+END:VEVENT
+END:VCALENDAR
