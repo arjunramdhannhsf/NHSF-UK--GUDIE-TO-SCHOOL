@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NHSF (UK)//Schools Guide//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:navratri-london-2026@nhsf.org.uk
+DTSTAMP:20260922T140000Z
+DTSTART:20261023T170000Z
+DTEND:20261023T213000Z
+SUMMARY:NHSF(UK) - London Zone Navratri
+LOCATION:Harrow Leisure Centre\, London\, HA3 5BD
+DESCRIPTION:Friday 23 October\, 6pm–10:30pm. Harrow Leisure Centre\, London\, HA3 5BD. Garba\, Dandiya and aarti to Maa Durga.
+END:VEVENT
+END:VCALENDAR

@@ -25,7 +25,14 @@ html, body {
   line-height: 1.5;
 }
 
-img { max-width: 100%; display: block; }
+img {
+  max-width: 100%;
+  display: block;
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
 a { color: inherit; }
 button, input, select, textarea { font: inherit; }
 
