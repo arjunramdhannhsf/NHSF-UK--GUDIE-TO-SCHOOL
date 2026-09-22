@@ -412,51 +412,52 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
   gap: 0.7rem;
   margin: 0 0 1rem;
 }
-.nav-zone { min-width: 0; margin: 0; }
+.nav-zone {
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  color: var(--navy);
+}
+.nav-zone.london { color: #fff; }
 .navratri-poster,
 .nav-placeholder {
-  width: 100%;
+  width: min(calc(15.5rem * 1350 / 1688), calc(100% - 0.7rem));
   height: auto;
   aspect-ratio: 1350 / 1688;
-  border-radius: 0.6rem;
-  background: var(--maroon);
-}
-.navratri-poster {
-  object-fit: cover;
+  align-self: center;
+  object-fit: contain;
   object-position: center;
+  margin: 0.45rem 0 0;
+  padding: 0;
+  border-radius: 0.35rem;
+  background: transparent;
 }
 .nav-placeholder {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
-  text-align: center;
-  color: #fff8ef;
-  padding: 1rem 0.7rem;
-  border: 1px dashed rgba(255, 248, 239, 0.4);
-}
-.nav-placeholder span {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.25rem;
-  line-height: 1.1;
-}
-.nav-placeholder strong {
-  font-family: var(--serif);
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  font-size: 0.92rem;
-  text-transform: uppercase;
-}
-.nav-placeholder em {
-  margin-top: 0.55rem;
-  font-style: normal;
-  font-size: 0.75rem;
+  border: 1px dashed color-mix(in srgb, currentColor 45%, transparent);
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #ffd7b8;
+  text-align: center;
+}
+.nav-details { padding: 0.55rem 0.75rem 0.75rem; }
+.nav-details h3 {
+  margin: 0 0 0.2rem;
+  color: inherit;
+  font-size: 1rem;
+}
+.nav-details p {
+  margin: 0;
+  color: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 .map-board {
@@ -887,11 +888,7 @@ body.legal {
   h2 { font-size: 1.55rem; }
   .photo-grid img { height: 6.4rem; }
   .navratri-poster,
-  .nav-placeholder {
-    height: 12.5rem;
-    aspect-ratio: auto;
-    object-fit: contain;
-  }
+  .nav-placeholder { width: min(calc(10rem * 1350 / 1688), calc(100% - 0.7rem)); }
   .horizons-hero { grid-template-columns: minmax(13rem, 0.75fr) 1.25fr; }
   .poster-wrap { min-height: 13rem; }
   .map-head { gap: 0.65rem; }
