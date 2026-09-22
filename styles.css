@@ -409,9 +409,15 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
 .nav-zones {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.7rem;
-  margin: 0 0 1rem;
+  gap: 1.85rem 0.7rem;
+  margin: 0 0 0.35rem;
 }
+.nav-card {
+  position: relative;
+  min-width: 0;
+  display: flex;
+}
+.nav-card .nav-zone { flex: 1; width: 100%; }
 .nav-zone {
   min-width: 0;
   margin: 0;
@@ -449,10 +455,26 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
   text-underline-offset: 0.12em;
 }
 .nav-details a:hover { opacity: 0.75; }
-.nav-details .cal-add {
-  display: inline-block;
-  margin-top: 0.35rem;
-  font-size: 0.8rem;
+.cal-add {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.35rem);
+  transform: translateX(-50%);
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--navy);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.cal-add:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
 }
 .nav-placeholder {
   flex: 1;
@@ -466,26 +488,24 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
   text-align: center;
 }
 .nav-placeholder .zone-name {
-  font-family: "Pinyon Script", cursive;
+  font-family: "Great Vibes", cursive;
   font-weight: 400;
-  font-size: clamp(2.5rem, 3vw, 3.15rem);
-  line-height: 0.85;
+  font-size: clamp(2.85rem, 3.2vw, 3.45rem);
+  line-height: 1.05;
+  color: #f4ead8;
 }
-.nav-placeholder .nav-title {
-  font-family: "Playfair Display", var(--serif);
-  font-weight: 500;
-  font-size: clamp(1.15rem, 1.45vw, 1.4rem);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  line-height: 1;
-  margin-top: 0.15rem;
+.nav-zone.south .zone-name { color: var(--navy); }
+.nav-placeholder .nav-word {
+  width: 92%;
+  height: auto;
+  margin-top: -0.15rem;
 }
 .nav-placeholder p {
-  margin: 0.35rem 0 0;
+  margin: 0.45rem 0 0;
   max-width: 16ch;
-  font-family: "Playfair Display", var(--serif);
+  font-family: var(--serif);
   font-size: 0.82rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.35;
 }
 .nav-placeholder a {
