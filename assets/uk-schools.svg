@@ -62,43 +62,47 @@
     <text x="76" y="56" font-size="11" fill="#5e6672">School chapters across the UK</text>
 
     <rect x="468" y="14" width="336" height="300" rx="14" fill="#fffdfa" stroke="#d5dce6"/>
-    <text x="486" y="36" font-size="13" font-weight="700" fill="#102b4e">School chapters</text>
+    <text x="486" y="34" font-size="13" font-weight="700" fill="#102b4e">School chapters</text>
+    <line x1="486" y1="42" x2="788" y2="42" stroke="#e4e9f0" stroke-width="1"/>
 
-    <circle cx="494" cy="56" r="5" fill="#e05a5a"/>
-    <text x="508" y="60" font-size="12" font-weight="700" fill="#e05a5a">North Zone</text>
-    <text x="512" y="72" font-size="9" font-weight="700" fill="#8c4a4a">Trafford Hindu Group</text>
-    <circle cx="500" cy="86" r="3.4" fill="#e05a5a"/>
-    <text x="512" y="90" font-size="11" fill="#102b4e">Sale</text>
-    <circle cx="500" cy="102" r="3.4" fill="#e05a5a"/>
-    <text x="512" y="106" font-size="11" fill="#102b4e">Altrincham Boys</text>
-    <circle cx="500" cy="118" r="3.4" fill="#e05a5a"/>
-    <text x="512" y="122" font-size="11" fill="#102b4e">Altrincham Girls</text>
+    <circle cx="494" cy="54" r="5" fill="#e05a5a"/>
+    <text x="508" y="58" font-size="12" font-weight="700" fill="#e05a5a">North Zone</text>
+    <text x="512" y="75" font-size="9" font-weight="700" fill="#8c4a4a">Trafford Hindu Group</text>
+    <circle cx="500" cy="88" r="3.4" fill="#e05a5a"/>
+    <text x="512" y="92" font-size="11" fill="#102b4e">Sale</text>
+    <circle cx="500" cy="105" r="3.4" fill="#e05a5a"/>
+    <text x="512" y="109" font-size="11" fill="#102b4e">Altrincham Boys</text>
+    <circle cx="500" cy="122" r="3.4" fill="#e05a5a"/>
+    <text x="512" y="126" font-size="11" fill="#102b4e">Altrincham Girls</text>
 
-    <circle cx="494" cy="134" r="5" fill="#3aa35a"/>
-    <text x="508" y="138" font-size="12" font-weight="700" fill="#3aa35a">Central Zone</text>
-    <circle cx="500" cy="154" r="3.4" fill="#3aa35a"/>
-    <text x="512" y="158" font-size="11" fill="#102b4e">The Perse</text>
-    <text x="572" y="158" font-size="9" font-weight="700" fill="#8a6d00">not yet</text>
-    <circle cx="500" cy="170" r="3.4" fill="#3aa35a"/>
-    <text x="512" y="174" font-size="11" fill="#102b4e">King Edward’s Boys</text>
-    <text x="628" y="174" font-size="9" font-weight="700" fill="#8a6d00">not yet</text>
-    <circle cx="500" cy="186" r="3.4" fill="#3aa35a"/>
-    <text x="512" y="190" font-size="11" fill="#102b4e">King Edward’s Girls</text>
-    <text x="628" y="190" font-size="9" font-weight="700" fill="#8a6d00">not yet</text>
+    <circle cx="494" cy="139" r="5" fill="#3aa35a"/>
+    <text x="508" y="143" font-size="12" font-weight="700" fill="#3aa35a">Central Zone</text>
+    <circle cx="500" cy="156" r="3.4" fill="#3aa35a"/>
+    <text x="512" y="160" font-size="11" fill="#102b4e">The Perse</text>
+    <rect x="740" y="150" width="48" height="13" rx="6" fill="#f6edd0"/>
+    <text x="764" y="160" text-anchor="middle" font-size="8" font-weight="700" fill="#8a6d00">not yet</text>
+    <circle cx="500" cy="173" r="3.4" fill="#3aa35a"/>
+    <text x="512" y="177" font-size="11" fill="#102b4e">King Edward’s Boys</text>
+    <rect x="740" y="167" width="48" height="13" rx="6" fill="#f6edd0"/>
+    <text x="764" y="177" text-anchor="middle" font-size="8" font-weight="700" fill="#8a6d00">not yet</text>
+    <circle cx="500" cy="190" r="3.4" fill="#3aa35a"/>
+    <text x="512" y="194" font-size="11" fill="#102b4e">King Edward’s Girls</text>
+    <rect x="740" y="184" width="48" height="13" rx="6" fill="#f6edd0"/>
+    <text x="764" y="194" text-anchor="middle" font-size="8" font-weight="700" fill="#8a6d00">not yet</text>
 
-    <circle cx="494" cy="212" r="5" fill="#e0b03a"/>
-    <text x="508" y="216" font-size="12" font-weight="700" fill="#c39214">South Zone</text>
-    <circle cx="500" cy="232" r="3.4" fill="#e0b03a"/>
-    <text x="512" y="236" font-size="11" fill="#102b4e">Upton Court</text>
+    <circle cx="494" cy="207" r="5" fill="#e0b03a"/>
+    <text x="508" y="211" font-size="12" font-weight="700" fill="#c39214">South Zone</text>
+    <circle cx="500" cy="224" r="3.4" fill="#e0b03a"/>
+    <text x="512" y="228" font-size="11" fill="#102b4e">Upton Court</text>
 
-    <circle cx="494" cy="258" r="5" fill="#3a7ad9"/>
-    <text x="508" y="262" font-size="12" font-weight="700" fill="#3a7ad9">London Zone</text>
-    <circle cx="500" cy="278" r="3.4" fill="#3a7ad9"/>
-    <text x="512" y="282" font-size="11" fill="#102b4e">Dr Challoner’s</text>
-    <circle cx="656" cy="278" r="3.4" fill="#3a7ad9"/>
-    <text x="668" y="282" font-size="11" fill="#102b4e">Alperton</text>
-    <circle cx="500" cy="294" r="3.4" fill="#3a7ad9"/>
-    <text x="512" y="298" font-size="11" fill="#102b4e">Dhyan · South London</text>
+    <circle cx="494" cy="241" r="5" fill="#3a7ad9"/>
+    <text x="508" y="245" font-size="12" font-weight="700" fill="#3a7ad9">London Zone</text>
+    <circle cx="500" cy="258" r="3.4" fill="#3a7ad9"/>
+    <text x="512" y="262" font-size="11" fill="#102b4e">Dr Challoner’s</text>
+    <circle cx="500" cy="275" r="3.4" fill="#3a7ad9"/>
+    <text x="512" y="279" font-size="11" fill="#102b4e">Alperton</text>
+    <circle cx="500" cy="292" r="3.4" fill="#3a7ad9"/>
+    <text x="512" y="296" font-size="11" fill="#102b4e">Dhyan · South London</text>
 
     <text x="250" y="274" font-size="9" font-weight="700" fill="#8c4a4a">Trafford Hindu Group</text>
     <circle cx="240" cy="292" r="5" fill="#e05a5a" stroke="#fff" stroke-width="1.4"/>
