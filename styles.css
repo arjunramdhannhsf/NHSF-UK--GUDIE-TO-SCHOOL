@@ -199,6 +199,10 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
   line-height: 1;
 }
 .facts span { font-size: 0.82rem; color: var(--grey); }
+.horizons-facts {
+  grid-template-columns: repeat(2, minmax(8rem, 12rem));
+  margin: 0.35rem 0 0.85rem;
+}
 
 .split {
   display: grid;
@@ -418,6 +422,30 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
 }
 .sessions span { font-size: 0.78rem; font-weight: 700; color: #ffd7b8; }
 .sessions h3 { color: #fffdfa; margin-top: 0.4rem; font-size: 1rem; }
+
+.quotes {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  gap: 0.7rem;
+  margin-top: 0.45rem;
+}
+.quotes blockquote {
+  margin: 0;
+  background: var(--cream);
+  border-radius: 0.8rem;
+  border-left: 4px solid var(--orange);
+  padding: 0.8rem 0.9rem;
+}
+.quotes p {
+  margin: 0 0 0.55rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+.quotes footer {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--navy);
+}
 
 .tall { min-height: 10rem; }
 .tall .cta { margin-top: 0.9rem; }
@@ -1009,7 +1037,7 @@ body.legal {
     height: 2.75rem;
     font-size: 1.45rem;
   }
-  .board, .hero, .split, .four, .photo-grid, .horizons, .horizons-hero, .sessions, .map-board, .map-head, .quote-board, .contact-grid, .facts, .nav-zones, .faq-list {
+  .board, .hero, .split, .four, .photo-grid, .horizons, .horizons-hero, .sessions, .quotes, .map-board, .map-head, .quote-board, .contact-grid, .facts, .nav-zones, .faq-list {
     grid-template-columns: 1fr;
     min-height: 0;
   }
