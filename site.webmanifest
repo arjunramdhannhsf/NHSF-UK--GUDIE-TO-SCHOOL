@@ -1,0 +1,25 @@
+{
+  "name": "NHSF (UK) Schools: Information Guide",
+  "short_name": "NHSF Schools",
+  "description": "A guide for UK schools, students aged 13 to 18 and families. Protect, Preserve, Practice and Promote Hindu Dharma.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#f8f2e9",
+  "theme_color": "#102b4e",
+  "lang": "en-GB",
+  "icons": [
+    {
+      "src": "assets/favicon.png",
+      "sizes": "736x744",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

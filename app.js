@@ -48,6 +48,32 @@ function go(delta) {
 deck.addEventListener("scroll", sync, { passive: true });
 sync();
 
+function slideForHash() {
+  const id = decodeURIComponent(location.hash.replace(/^#/, ""));
+  if (!id) return null;
+  const el = document.getElementById(id);
+  return el ? el.closest(".slide") || el : null;
+}
+
+function openHash(behavior) {
+  const slide = slideForHash();
+  if (slide) slide.scrollIntoView({ behavior, block: "start" });
+}
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href^='#']");
+  if (!link) return;
+  const id = decodeURIComponent(link.getAttribute("href").slice(1));
+  if (!id || !document.getElementById(id)) return;
+  event.preventDefault();
+  const next = `#${id}`;
+  if (location.hash !== next) history.pushState(null, "", next);
+  openHash("smooth");
+});
+
+window.addEventListener("hashchange", () => openHash("smooth"));
+openHash("auto");
+
 const presentBtn = $("#present-btn");
 presentBtn.addEventListener("click", async () => {
   if (!document.fullscreenElement) {
