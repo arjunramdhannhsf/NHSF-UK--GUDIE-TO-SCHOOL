@@ -321,7 +321,10 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
 .photo-grid img { height: 7.2rem; width: 100%; object-fit: cover; }
 .team-hall { object-position: center 68%; }
 .games-hall { object-position: center 62%; }
-.games-run { object-position: center 42%; }
+.photo-grid img.games-run {
+  height: 12rem;
+  object-position: 62% 76%;
+}
 .photo-grid img.photo-placeholder { object-fit: contain; background: #f8f2e9; }
 .photo-grid h3 { padding: 0.65rem 0.8rem 0.25rem; }
 .examples {
