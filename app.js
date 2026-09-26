@@ -27,10 +27,15 @@ function currentIndex() {
   return current;
 }
 
+function isMobileLayout() {
+  return window.matchMedia("(max-width: 980px)").matches;
+}
+
 function sync() {
   const i = currentIndex();
-  const max = deck.scrollHeight - deck.clientHeight;
-  const pct = max > 0 ? (deck.scrollTop / max) * 100 : 0;
+  const scroller = isMobileLayout() ? document.scrollingElement : deck;
+  const max = scroller.scrollHeight - scroller.clientHeight;
+  const pct = max > 0 ? (scroller.scrollTop / max) * 100 : 0;
   progressBar.style.width = `${pct}%`;
   dots.forEach((dot, n) => dot.classList.toggle("is-on", n === i));
   slideNum.textContent = `${String(i + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
@@ -46,6 +51,8 @@ function go(delta) {
 }
 
 deck.addEventListener("scroll", sync, { passive: true });
+window.addEventListener("scroll", sync, { passive: true });
+window.addEventListener("resize", sync);
 sync();
 
 function slideForHash() {

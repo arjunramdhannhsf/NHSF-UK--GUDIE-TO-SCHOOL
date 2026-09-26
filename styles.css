@@ -1033,10 +1033,28 @@ body.legal {
 .deck-nav .ghost { padding: 0.4rem 0.75rem; font-size: 0.78rem; }
 
 @media (max-width: 980px) {
-  html, body { overflow: auto; height: auto; }
+  html, body {
+    overflow: auto;
+    height: auto;
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 0.4rem;
+  }
   .deck { height: auto; overflow: visible; scroll-snap-type: none; }
-  .slide { min-height: auto; padding: 4.4rem 0.9rem 1.1rem; display: block; }
-  .slide#map { padding-left: 0; padding-right: 0; }
+  .slide {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 3.15rem 0.75rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+  }
+  .slide#map {
+    justify-content: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+  }
   .dual-map-board {
     width: 100%;
     border-radius: 0;
@@ -1062,8 +1080,39 @@ body.legal {
   }
   .directory { margin-left: 0.9rem; margin-right: 0.9rem; }
   .arrow { display: none; }
-  .hero-photo, .split img, .inset { height: 14rem; }
-  .logo-hero { height: 3.6rem; }
+  .deck-nav {
+    top: 4px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.42rem 0.85rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(10px);
+  }
+  .deck-nav #present-btn { display: none; }
+  .dots { gap: 0.28rem; }
+  .dots button { width: 0.42rem; height: 0.42rem; }
+  .dots button.is-on { width: 1rem; }
+  .slide-num { color: var(--navy); white-space: nowrap; flex-shrink: 0; }
+  h1 { font-size: 2.15rem; }
+  .subtitle { font-size: 1.02rem; margin-bottom: 0.4rem; }
+  .lede { margin-bottom: 0.45rem; }
+  .logo-hero { height: 3.15rem; margin-bottom: 0.55rem; }
+  .pills { margin-top: 0.65rem; gap: 0.45rem; }
+  .cta, .ghost { padding: 0.55rem 0.85rem; }
+  .hero-photo, .split img, .inset { height: 11rem; }
+  .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.4rem; }
+  .facts article { padding: 0.55rem 0.45rem; }
+  .facts b { font-size: 1.35rem; }
+  .facts span { font-size: 0.68rem; line-height: 1.25; }
+  .horizons-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .four, .photo-grid { grid-template-columns: 1fr 1fr; }
+  .photo-grid img, .photo-grid img.games-run { height: 7.5rem; }
+  .navratri-poster { height: 12.5rem; }
+  .map-tip.is-docked { bottom: 0.75rem; }
   .purpose-four .panel { min-height: 0; }
   .poster-wrap { min-height: 14rem; }
   .poster { height: auto; }
@@ -1083,5 +1132,5 @@ body.legal {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .deck { scroll-behavior: auto; }
+  html, .deck { scroll-behavior: auto; scroll-snap-type: none; }
 }
