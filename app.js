@@ -719,6 +719,23 @@ const SCHOOL_AREAS = {
   "st-olaves": [schoolBox(662, 566, 728, 608)],
 };
 
+function schoolOpenUrl(ch) {
+  if (!ch) return "";
+  return ch.instagram || ch.groupInstagram || ch.website || "";
+}
+
+function schoolOpenLabel(ch) {
+  if (ch?.instagram || ch?.groupInstagram) return "Open Instagram";
+  if (ch?.website) return "Open school website";
+  return "";
+}
+
+function schoolOpenHint(ch) {
+  const label = schoolOpenLabel(ch);
+  if (!label) return "";
+  return `<p class="tip-hint">Click to ${label.charAt(0).toLowerCase()}${label.slice(1)}</p>`;
+}
+
 bindMap({
   img: $("#school-map-img"),
   frame: $("#school-frame"),
@@ -735,12 +752,13 @@ bindMap({
     <span class="aff-tag">${ch.affiliated ? "Affiliated" : "Not affiliated yet"}</span>
     ${ch.groupInstagram ? `<p><a href="${ch.groupInstagram}" target="_blank" rel="noopener">@${ch.groupInstagram.split("/").filter(Boolean).pop()}</a></p>` : ""}
     ${ch.instagram ? `<p><a href="${ch.instagram}" target="_blank" rel="noopener">@${ch.instagram.split("/").filter(Boolean).pop()}</a></p>` : ""}
-    ${ch.website ? `<p class="tip-hint">Click to open the school website</p>` : ""}
+    ${schoolOpenHint(ch)}
   `,
-  openLabel: (ch) => (ch.website ? "Open school website" : ""),
+  openLabel: (ch) => schoolOpenLabel(ch),
   onClick: (ch) => {
-    if (!ch?.website) return;
-    window.open(ch.website, "_blank", "noopener,noreferrer");
+    const url = schoolOpenUrl(ch);
+    if (!url) return;
+    window.open(url, "_blank", "noopener,noreferrer");
   },
 });
 
