@@ -823,10 +823,12 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 28rem);
-  gap: 0.9rem;
+  display: block;
   margin-top: 0.8rem;
+}
+.contact-grid .socials {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.5rem;
 }
 form {
   background: var(--cream);
@@ -1113,6 +1115,7 @@ body.legal {
   .four, .photo-grid { grid-template-columns: 1fr 1fr; }
   .photo-grid img, .photo-grid img.games-run { height: 7.5rem; }
   .navratri-poster { height: 12.5rem; }
+  .contact-grid .socials { grid-template-columns: 1fr; }
   .map-tip.is-docked { bottom: 0.75rem; }
   .purpose-four .panel { min-height: 0; }
   .poster-wrap { min-height: 14rem; }
