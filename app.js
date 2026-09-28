@@ -502,8 +502,10 @@ function bindMap({
     else hideTip();
   });
 
-  viewport.addEventListener("pointerleave", () => {
-    if (!coarse && !gesture) hideTip();
+  viewport.addEventListener("pointerleave", (event) => {
+    if (coarse || gesture) return;
+    if (tip && !tip.hidden && event.relatedTarget instanceof Node && tip.contains(event.relatedTarget)) return;
+    hideTip();
   });
 
   frame.addEventListener("click", (event) => {
@@ -731,6 +733,8 @@ bindMap({
     <h3>${ch.school}</h3>
     ${ch.location ? `<p>${ch.location}</p>` : ""}
     <span class="aff-tag">${ch.affiliated ? "Affiliated" : "Not affiliated yet"}</span>
+    ${ch.groupInstagram ? `<p><a href="${ch.groupInstagram}" target="_blank" rel="noopener">@${ch.groupInstagram.split("/").filter(Boolean).pop()}</a></p>` : ""}
+    ${ch.instagram ? `<p><a href="${ch.instagram}" target="_blank" rel="noopener">@${ch.instagram.split("/").filter(Boolean).pop()}</a></p>` : ""}
     ${ch.website ? `<p class="tip-hint">Click to open the school website</p>` : ""}
   `,
   openLabel: (ch) => (ch.website ? "Open school website" : ""),

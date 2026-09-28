@@ -191,8 +191,8 @@ window.CHAPTERS = [
     "location": "Birmingham B15 2TT, UK",
     "email": "hindu@guild.bham.ac.uk",
     "instagram": "https://www.instagram.com/uobhindusoc/",
-    "x": 36.2,
-    "y": 62.9
+    "x": 42.11,
+    "y": 62.87
   },
   {
     "id": "uea",
@@ -217,8 +217,8 @@ window.CHAPTERS = [
     "location": "Coventry CV4 7AL, UK",
     "email": "su411@warwicksu.com",
     "instagram": "https://www.instagram.com/nhsfwarwick/",
-    "x": 42.11,
-    "y": 62.87
+    "x": 43.87,
+    "y": 65.34
   },
   {
     "id": "cambridge",
@@ -243,8 +243,8 @@ window.CHAPTERS = [
     "location": "Priory St, Coventry CV1 5FB, UK",
     "email": "hindusoc.su@coventry.ac.uk",
     "instagram": "https://www.instagram.com/nhsfcov/",
-    "x": 45.51,
-    "y": 61.66
+    "x": 44.99,
+    "y": 63.86
   },
   {
     "id": "leicester",
@@ -256,8 +256,8 @@ window.CHAPTERS = [
     "location": "University Rd, Leicester LE1 7RH, UK",
     "email": "su-hindu@le.ac.uk",
     "instagram": "https://www.instagram.com/leicesterhindusociety/",
-    "x": 46.99,
-    "y": 59.66
+    "x": 45.51,
+    "y": 61.66
   },
   {
     "id": "dmu",
@@ -295,8 +295,8 @@ window.CHAPTERS = [
     "location": "50 Shakespeare St, Nottingham NG1 4FQ, UK",
     "email": "",
     "instagram": "https://www.instagram.com/nhsfnottinghamtrent/",
-    "x": 48.91,
-    "y": 56.61
+    "x": 46.99,
+    "y": 59.66
   },
   {
     "id": "loughborough",
@@ -598,10 +598,9 @@ window.CHAPTERS = [
     "location": "Marylebone Building, 35 Marylebone Road, London NW1 5LS",
     "email": "",
     "instagram": "https://www.instagram.com/uow_hindusoc/",
-    "x": 71.05,
-    "y": 83.55,
+    "x": 77.57,
+    "y": 85.14,
     "hits": [
-      { "x": 73.1, "y": 83.55 },
       { "x": 82.15, "y": 68.23 }
     ]
   },
@@ -641,8 +640,8 @@ window.CHAPTERS = [
     "location": "Stag Hill, University Campus, Guildford GU2 7XH, UK",
     "email": "ussu.hindu@surrey.ac.uk",
     "instagram": "https://www.instagram.com/surreyhindusoc",
-    "x": 48.99,
-    "y": 77.12
+    "x": 51.53,
+    "y": 74.94
   },
   {
     "id": "oxford",
@@ -667,8 +666,8 @@ window.CHAPTERS = [
     "location": "Headington Rd, Headington, Oxford OX3 0BP, UK",
     "email": "",
     "instagram": "https://www.instagram.com/brookeshindusociety_/",
-    "x": 40.52,
-    "y": 72.8
+    "x": 39.54,
+    "y": 70.99
   },
   {
     "id": "brighton-sussex",
@@ -680,8 +679,8 @@ window.CHAPTERS = [
     "location": "Falmer, Brighton BN1 9RH, UK",
     "email": "",
     "instagram": "https://www.instagram.com/brightonsussex_hindusoc/",
-    "x": 51.53,
-    "y": 74.94
+    "x": 48.99,
+    "y": 77.12
   },
   {
     "id": "portsmouth",
@@ -719,8 +718,8 @@ window.CHAPTERS = [
     "location": "Whiteknights House, Reading RG6 6UR, UK",
     "email": "",
     "instagram": "https://www.instagram.com/nhsfreading/",
-    "x": 39.54,
-    "y": 70.99
+    "x": 40.52,
+    "y": 72.8
   },
   {
     "id": "bristol",
