@@ -502,10 +502,19 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
   padding-top: 0.45rem;
   border-top: 1px solid var(--line);
 }
-.event-bit > h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+.event-bit > h3 { margin: 0 0 0.15rem; font-size: 1.15rem; }
+.event-role {
+  margin: 0 0 0.45rem;
+  color: var(--navy);
+  font-weight: 700;
+}
 #care h2 { margin-bottom: 0.35rem; }
 #care .lede { margin-bottom: 0.4rem; }
-#care .dots-card { grid-template-columns: 8.75rem minmax(0, 1fr); margin-bottom: 0.4rem; }
+#care .dots-card {
+  grid-template-columns: 20rem minmax(0, 1fr);
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
 #care .nav-zones { margin-bottom: 0.4rem; }
 #care .navratri-poster { height: 8rem; }
 #care .panel { padding: 0.7rem 0.85rem; }
@@ -1162,7 +1171,7 @@ body.legal {
     justify-items: center;
     text-align: center;
   }
-  .dots-poster { width: min(16rem, 100%); }
+  #care .dots-poster { width: min(100%, 22rem); }
   .dots-links { justify-content: center; }
   #care .navratri-poster { height: 12.5rem; }
   .contact-grid .socials { grid-template-columns: 1fr; }
@@ -1181,7 +1190,7 @@ body.legal {
   .photo-grid img, .photo-placeholder { height: 6.4rem; }
   #care .event-bit { margin: 0 0 0.25rem; padding-top: 0.25rem; }
   #care .event-bit > h3 { margin-bottom: 0.15rem; font-size: 0.95rem; }
-  #care .dots-card { grid-template-columns: 5.6rem minmax(0, 1fr); gap: 0.5rem; margin-bottom: 0.25rem; }
+  #care .dots-card { grid-template-columns: 16rem minmax(0, 1fr); gap: 0.7rem; margin-bottom: 0.25rem; }
   #care .dots-copy h3 { font-size: 0.98rem; margin: 0; }
   #care .dots-copy p { margin: 0; font-size: 0.78rem; line-height: 1.25; }
   #care .dots-card .cal-add { margin-top: 0.15rem; }
