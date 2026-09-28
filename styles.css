@@ -497,6 +497,12 @@ h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: var(--navy); }
 }
 .dots-copy a:hover { color: var(--orange-deep); }
 .dots-card .cal-add { margin-top: 0.45rem; display: inline-block; }
+.event-bit {
+  margin: 0.15rem 0 0.45rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--line);
+}
+.event-bit > h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
 #care h2 { margin-bottom: 0.35rem; }
 #care .lede { margin-bottom: 0.4rem; }
 #care .dots-card { grid-template-columns: 8.75rem minmax(0, 1fr); margin-bottom: 0.4rem; }
@@ -1150,6 +1156,7 @@ body.legal {
   .horizons-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .four, .photo-grid { grid-template-columns: 1fr 1fr; }
   .photo-grid img, .photo-grid img.games-run { height: 7.5rem; }
+  #care .event-bit { text-align: center; }
   #care .dots-card {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -1172,6 +1179,8 @@ body.legal {
   h1 { font-size: 2.3rem; }
   h2 { font-size: 1.55rem; }
   .photo-grid img, .photo-placeholder { height: 6.4rem; }
+  #care .event-bit { margin: 0 0 0.25rem; padding-top: 0.25rem; }
+  #care .event-bit > h3 { margin-bottom: 0.15rem; font-size: 0.95rem; }
   #care .dots-card { grid-template-columns: 5.6rem minmax(0, 1fr); gap: 0.5rem; margin-bottom: 0.25rem; }
   #care .dots-copy h3 { font-size: 0.98rem; margin: 0; }
   #care .dots-copy p { margin: 0; font-size: 0.78rem; line-height: 1.25; }
