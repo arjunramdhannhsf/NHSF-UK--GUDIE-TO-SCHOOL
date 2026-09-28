@@ -416,8 +416,8 @@ window.CHAPTERS = [
     "location": "Cranmer Terrace, London SW17 0RE, UK",
     "email": "hindusoc@sgul.ac.uk",
     "instagram": "https://www.instagram.com/sgul_hindusoc/",
-    "x": 72.9,
-    "y": 89.85,
+    "x": 72.92,
+    "y": 92.07,
     "hits": [
       {
         "x": 82.15,

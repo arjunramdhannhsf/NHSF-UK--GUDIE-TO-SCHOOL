@@ -132,28 +132,6 @@ $$('a[href^="#"]').forEach((link) => {
   });
 });
 
-const form = $("#contact-form");
-const status = $("#form-status");
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = new FormData(form);
-  const name = String(data.get("name") || "").trim();
-  const email = String(data.get("email") || "").trim();
-  const subjectField = String(data.get("subject") || "").trim();
-  const message = String(data.get("message") || "").trim();
-
-  if (!name || !email || !message) {
-    status.textContent = "Please complete name, email and message.";
-    return;
-  }
-
-  const subject = encodeURIComponent(subjectField || `NHSF Schools guide: ${name}`);
-  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-  window.location.href = `mailto:info@nhsf.org.uk?subject=${subject}&body=${body}`;
-  status.textContent = "Opening your email to info@nhsf.org.uk…";
-});
-
 function bindMap({
   img,
   frame,
@@ -166,6 +144,7 @@ function bindMap({
   reachFor,
   areasById,
   labelScan,
+  dotsOnly,
 }) {
   if (!img || !frame || !pinsWrap || !Array.isArray(items)) return;
 
@@ -217,6 +196,7 @@ function bindMap({
   const stage = viewport.parentElement;
 
   let scanned = null;
+  let hitPoint = null;
 
   function showTip(ch, clientX, clientY) {
     if (!tip || !ch) return;
@@ -248,7 +228,11 @@ function bindMap({
     const hostRect = (stage || viewport).getBoundingClientRect();
     let pinX;
     let pinY;
-    if (clientX != null && clientY != null) {
+    if (dotsOnly && hitPoint) {
+      const imgRect = img.getBoundingClientRect();
+      pinX = imgRect.left + (hitPoint.x / 100) * imgRect.width;
+      pinY = imgRect.top + (hitPoint.y / 100) * imgRect.height;
+    } else if (clientX != null && clientY != null) {
       pinX = clientX;
       pinY = clientY;
     } else {
@@ -325,6 +309,26 @@ function bindMap({
     const y = (py / rect.height) * 100;
     let best = null;
     let bestDist = Infinity;
+    if (dotsOnly) {
+      const natural = img.naturalWidth || rect.width;
+      const limit = ((coarse ? 16 : 8) / natural) * rect.width;
+      const max2 = limit * limit;
+      hitPoint = null;
+      for (const ch of items) {
+        for (const pt of points(ch)) {
+          const dx = (pt.x / 100) * rect.width - px;
+          const dy = (pt.y / 100) * rect.height - py;
+          const dist2 = dx * dx + dy * dy;
+          if (dist2 <= max2 && dist2 < bestDist) {
+            bestDist = dist2;
+            best = ch;
+            hitPoint = pt;
+          }
+        }
+      }
+      return best;
+    }
+    hitPoint = null;
     for (const ch of items) {
       const areas = areasFor(ch);
       if (areas) {
@@ -742,8 +746,7 @@ bindMap({
   pinsWrap: $("#map-pins"),
   tip: $("#map-tip"),
   items: window.CHAPTERS || [],
-  labelScan: true,
-  reachFor: (ch) => (ch.zone === "london" ? 12 : 14),
+  dotsOnly: true,
   renderTip: (ch) => `
     <span class="zone-tag">${ch.zone} zone</span>
     <h3>${ch.society}</h3>
