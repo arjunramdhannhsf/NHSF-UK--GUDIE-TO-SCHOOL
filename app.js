@@ -537,12 +537,8 @@ function bindMap({
     const maxW = parent.clientWidth;
     if (!maxW || (maxW === fittedFor && frame.style.width)) return;
     fittedFor = maxW;
-    const tablet = window.innerWidth >= 700;
-    const maxH = Math.round(Math.min(tablet ? 520 : 360, window.innerHeight * (tablet ? 0.5 : 0.42)));
-    const fit = Math.min(maxW / img.naturalWidth, maxH / img.naturalHeight);
-    const w = Math.max(1, Math.round(img.naturalWidth * fit));
-    viewport.style.width = `${w}px`;
-    frame.style.width = `${w}px`;
+    viewport.style.width = `${maxW}px`;
+    frame.style.width = `${maxW}px`;
     scale = 1;
     panX = 0;
     panY = 0;
