@@ -435,15 +435,7 @@ function bindMap({
       }
     }
 
-    if (gesture === "scroll") {
-      event.preventDefault();
-      scrollPage(dy);
-      lastX = event.clientX;
-      lastY = event.clientY;
-      dragged = true;
-      hideTip();
-      return;
-    }
+    if (gesture === "scroll") return;
 
     if (gesture === "pan") {
       event.preventDefault();
@@ -528,7 +520,7 @@ function bindMap({
   });
 
   function fitFrame() {
-    const mobile = window.matchMedia("(max-width: 980px)").matches;
+    const mobile = window.matchMedia("(max-width: 1280px)").matches;
     if (!mobile) {
       if (viewport.style.width || frame.style.width) {
         viewport.style.width = "";
@@ -545,7 +537,8 @@ function bindMap({
     const maxW = parent.clientWidth;
     if (!maxW || (maxW === fittedFor && frame.style.width)) return;
     fittedFor = maxW;
-    const maxH = Math.max(320, window.innerHeight);
+    const tablet = window.innerWidth >= 700;
+    const maxH = Math.round(Math.min(tablet ? 520 : 360, window.innerHeight * (tablet ? 0.5 : 0.42)));
     const fit = Math.min(maxW / img.naturalWidth, maxH / img.naturalHeight);
     const w = Math.max(1, Math.round(img.naturalWidth * fit));
     viewport.style.width = `${w}px`;
