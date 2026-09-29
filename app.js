@@ -201,6 +201,17 @@ function bindMap({
   function showTip(ch, clientX, clientY) {
     if (!tip || !ch) return;
     tip.innerHTML = renderTip(ch);
+    const close = document.createElement("button");
+    close.type = "button";
+    close.className = "tip-close";
+    close.setAttribute("aria-label", "Close");
+    close.textContent = "×";
+    close.addEventListener("click", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      hideTip();
+    });
+    tip.append(close);
     if (stage && tip.parentElement !== stage) stage.append(tip);
     if (coarse) {
       tip.classList.add("is-docked");
@@ -254,6 +265,13 @@ function bindMap({
   function hideTip() {
     if (tip) tip.hidden = true;
   }
+
+  function closeTipOnScroll() {
+    if (tip && !tip.hidden) hideTip();
+  }
+  window.addEventListener("scroll", closeTipOnScroll, { capture: true, passive: true });
+  const deck = document.querySelector(".deck");
+  if (deck) deck.addEventListener("scroll", closeTipOnScroll, { passive: true });
 
   function clamp(value, min, max) {
     return Math.min(max, Math.max(min, value));
@@ -309,6 +327,22 @@ function bindMap({
     const y = (py / rect.height) * 100;
     let best = null;
     let bestDist = Infinity;
+    for (const ch of items) {
+      const areas = areasFor(ch);
+      if (!areas) continue;
+      for (const box of areas) {
+        if (x < box.x || y < box.y || x > box.x + box.w || y > box.y + box.h) continue;
+        const cx = box.x + box.w / 2;
+        const cy = box.y + box.h / 2;
+        const dist2 = (cx - x) ** 2 + (cy - y) ** 2;
+        if (dist2 < bestDist) {
+          bestDist = dist2;
+          best = ch;
+          hitPoint = { x: cx, y: cy };
+        }
+      }
+    }
+    if (best) return best;
     if (dotsOnly) {
       const natural = img.naturalWidth || rect.width;
       const limit = ((coarse ? 16 : 8) / natural) * rect.width;
@@ -330,20 +364,7 @@ function bindMap({
     }
     hitPoint = null;
     for (const ch of items) {
-      const areas = areasFor(ch);
-      if (areas) {
-        for (const box of areas) {
-          if (x < box.x || y < box.y || x > box.x + box.w || y > box.y + box.h) continue;
-          const cx = box.x + box.w / 2;
-          const cy = box.y + box.h / 2;
-          const dist2 = (cx - x) ** 2 + (cy - y) ** 2;
-          if (dist2 < bestDist) {
-            bestDist = dist2;
-            best = ch;
-          }
-        }
-        continue;
-      }
+      if (areasFor(ch)) continue;
       const base = reachFor ? reachFor(ch) : 20;
       const reach = coarse ? Math.max(base, 28) : base;
       const max2 = reach * reach;
@@ -691,15 +712,16 @@ function schoolBox(x0, y0, x1, y1) {
 }
 
 const SCHOOL_AREAS = {
-  sale: [schoolBox(233, 284, 278, 304), schoolBox(506, 81, 542, 95)],
-  "altrincham-boys": [schoolBox(233, 302, 340, 320), schoolBox(506, 98, 600, 112)],
-  "altrincham-girls": [schoolBox(233, 320, 340, 340), schoolBox(506, 115, 602, 129)],
-  "ke-boys": [schoolBox(240, 412, 308, 436), schoolBox(506, 166, 620, 180)],
-  "ke-girls": [schoolBox(240, 436, 308, 458), schoolBox(506, 183, 620, 197)],
-  perse: [schoolBox(372, 444, 448, 470), schoolBox(506, 149, 572, 163)],
-  "upton-court": [schoolBox(226, 530, 312, 558), schoolBox(506, 217, 584, 231)],
-  challoners: [schoolBox(534, 408, 642, 440), schoolBox(506, 251, 594, 265)],
-  alperton: [schoolBox(564, 448, 646, 478), schoolBox(506, 268, 566, 282)],
+  sale: [schoolBox(233, 284, 278, 304), schoolBox(490, 80, 800, 100)],
+  "altrincham-boys": [schoolBox(233, 302, 340, 320), schoolBox(490, 100, 800, 117)],
+  "altrincham-girls": [schoolBox(233, 320, 340, 340), schoolBox(490, 117, 800, 134)],
+  "ke-boys": [schoolBox(240, 412, 308, 436), schoolBox(490, 168, 800, 185)],
+  "ke-girls": [schoolBox(240, 436, 308, 458), schoolBox(490, 185, 800, 202)],
+  perse: [schoolBox(372, 444, 448, 470), schoolBox(490, 148, 800, 168)],
+  "upton-court": [schoolBox(226, 530, 312, 558), schoolBox(490, 216, 800, 236)],
+  challoners: [schoolBox(534, 408, 642, 440), schoolBox(490, 250, 800, 270)],
+  alperton: [schoolBox(564, 448, 646, 478), schoolBox(490, 270, 800, 287)],
+  "dhyan-group": [schoolBox(490, 287, 800, 308)],
   nonsuch: [schoolBox(506, 524, 562, 560)],
   "sutton-grammar": [schoolBox(542, 562, 610, 598)],
   "wallington-girls": [schoolBox(606, 524, 688, 558)],
@@ -738,7 +760,7 @@ bindMap({
     ${ch.group ? `<p>${ch.group}</p>` : ""}
     <h3>${ch.school}</h3>
     ${ch.location ? `<p>${ch.location}</p>` : ""}
-    <span class="aff-tag">${ch.affiliated ? "Affiliated" : "Not affiliated yet"}</span>
+    ${typeof ch.affiliated === "boolean" ? `<span class="aff-tag">${ch.affiliated ? "Affiliated" : "Not affiliated yet"}</span>` : ""}
     ${ch.groupInstagram ? `<p><a href="${ch.groupInstagram}" target="_blank" rel="noopener">@${ch.groupInstagram.split("/").filter(Boolean).pop()}</a></p>` : ""}
     ${ch.instagram ? `<p><a href="${ch.instagram}" target="_blank" rel="noopener">@${ch.instagram.split("/").filter(Boolean).pop()}</a></p>` : ""}
     ${schoolOpenHint(ch)}
@@ -751,12 +773,85 @@ bindMap({
   },
 });
 
+function uniBox(x0, y0, x1, y1) {
+  return {
+    x: (x0 / 723) * 100,
+    y: (y0 / 1024) * 100,
+    w: ((x1 - x0) / 723) * 100,
+    h: ((y1 - y0) / 1024) * 100,
+  };
+}
+
+function uniList(side, y0, y1) {
+  const x0 = side === "L" ? 462 : 586;
+  const x1 = side === "L" ? 582 : 710;
+  return [uniBox(x0, y0, x1, y1)];
+}
+
+const UNI_AREAS = {
+  aberdeen: uniList("L", 150, 169),
+  durham: uniList("L", 169, 183.5),
+  edinburgh: uniList("L", 183.5, 199),
+  glasgow: uniList("L", 199, 213.5),
+  hull: uniList("L", 213.5, 228.5),
+  keele: uniList("L", 228.5, 248),
+  lancaster: uniList("R", 150, 170),
+  leeds: uniList("R", 170, 184),
+  manchester: uniList("R", 184, 198),
+  sheffield: uniList("R", 198, 213),
+  lancashire: uniList("R", 213, 228.5),
+  york: uniList("R", 228.5, 248),
+  aston: uniList("L", 286, 306),
+  birmingham: uniList("L", 306, 321),
+  cambridge: uniList("L", 321, 336),
+  coventry: uniList("L", 336, 351.5),
+  dmu: uniList("L", 351.5, 367),
+  leicester: uniList("L", 367, 388),
+  loughborough: uniList("R", 286, 305),
+  northampton: uniList("R", 305, 320),
+  nottingham: uniList("R", 320, 336),
+  ntu: uniList("R", 336, 351),
+  uea: uniList("R", 351, 367),
+  warwick: uniList("R", 367, 388),
+  bath: uniList("L", 426, 446),
+  "brighton-sussex": uniList("L", 446, 461.5),
+  bristol: uniList("L", 461.5, 476.5),
+  cardiff: uniList("L", 476.5, 491.5),
+  exeter: uniList("L", 491.5, 507),
+  kent: uniList("L", 507, 522.5),
+  oxford: uniList("L", 522.5, 537),
+  "oxford-brookes": uniList("L", 537, 558),
+  plymouth: uniList("R", 426, 446),
+  portsmouth: uniList("R", 446, 461.5),
+  reading: uniList("R", 461.5, 476.5),
+  solent: uniList("R", 476.5, 492),
+  southampton: uniList("R", 492, 507.5),
+  surrey: uniList("R", 507.5, 523),
+  swansea: uniList("R", 523, 545),
+  "anglia-ruskin": uniList("L", 598, 614.5),
+  brunel: uniList("L", 614.5, 630),
+  city: uniList("L", 630, 645),
+  "east-london": uniList("L", 645, 660),
+  essex: uniList("L", 660, 676),
+  greenwich: uniList("L", 676, 690),
+  hertfordshire: uniList("L", 690, 704.5),
+  imperial: uniList("L", 704.5, 722),
+  kings: uniList("R", 598, 615),
+  lse: uniList("R", 615, 630),
+  qmul: uniList("R", 630, 645),
+  holloway: uniList("R", 645, 660.5),
+  "st-georges": uniList("R", 660.5, 675.5),
+  ucl: uniList("R", 675.5, 691),
+  westminster: uniList("R", 691, 710),
+};
+
 bindMap({
   img: $("#uni-map-img"),
   frame: $("#uni-frame"),
   pinsWrap: $("#map-pins"),
   tip: $("#map-tip"),
   items: window.CHAPTERS || [],
+  areasById: UNI_AREAS,
   dotsOnly: true,
   renderTip: (ch) => `
     <span class="zone-tag">${ch.zone} zone</span>

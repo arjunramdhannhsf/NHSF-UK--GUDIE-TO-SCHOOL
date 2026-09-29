@@ -169,5 +169,13 @@ window.SCHOOLS = [
     affiliated: false,
     x: 66.83,
     y: 79.42
+  },
+  {
+    id: "dhyan-group",
+    zone: "london",
+    school: "Dhyan School Group",
+    location: "South London",
+    group: "Dhyan School Group (Dharmic Hindu Youth Association)",
+    instagram: "https://www.instagram.com/dhyan.uk/"
   }
 ];

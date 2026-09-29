@@ -6,10 +6,10 @@ METHOD:PUBLISH
 BEGIN:VEVENT
 UID:dots-2026@nhsf.org.uk
 DTSTAMP:20260928T210000Z
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
+DTSTART:20261025T140000Z
+DTEND:20261025T190000Z
 SUMMARY:DOTS 2026 – Diwali On Trafalgar Square
 LOCATION:Trafalgar Square\, London
-DESCRIPTION:NHSF (UK) is DiL Chair 2026. Sunday 25th October 2026. Trafalgar Square\, London. Music\, dance\, food and culture. https://www.diwaliinlondon.com/
+DESCRIPTION:NHSF (UK) is DiL Chair 2026. Sunday 25th October 2026\, 2pm–7pm. Trafalgar Square\, London. Music\, dance\, food and culture. https://www.diwaliinlondon.com/
 END:VEVENT
 END:VCALENDAR
